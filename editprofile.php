@@ -4,6 +4,7 @@
  	if (!isset($_SESSION['uname'])) {
  		header("location: login.php");
  	}
+
 ?>
 
 <!DOCTYPE html>
@@ -27,100 +28,108 @@
 
 <fieldset>
 	<legend>Profile</legend>
-	<table align="center">
+  <form  action="php/editcheck.php" method="post">
+    <table align="center">
 
-		<tr>
-			<td>Profile Pic</td>
-			<td>:</td>
-			<td>
-				<input type="file" name="profilePic" value="">
-			</td>
-		</tr>
-
-			<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-
-		<tr>
-			<td>Chef Name</td>
-			<td>:</td>
-			<!-- use chef name by session -->
-			<td><input type="text" name="ename" value=""></td>
-		</tr>
+  		<tr>
+  			<td>Profile Pic</td>
+  			<td>:</td>
+  			<td>
+  				<input type="file" name="profilePic" value="">
+  			</td>
+  		</tr>
 
 
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td>Password</td>
-			<td>:</td>
-			<td>
-				<input type="Password" name="cpass" value="">
-			</td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
+
+  		<tr>
+  			<td>Chef Name</td>
+  			<td>:</td>
+  			<!-- use chef name by session -->
+  			<td><input type="text" name="cname" value=""></td>
+  		</tr>
 
 
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
 
-		<tr>
-			<td colspan="3" align="right"><a href="profile.php"><input type="submit" name="submit" value="Done"></a></td>
-		</tr>
+  		<tr>
+  			<td>Password</td>
+  			<td>:</td>
+  			<td>
+  				<input type="Password" name="cpass" value="">
+  			</td>
+  		</tr>
 
-	</table>
+      <tr>
+        <td>Email</td>
+        <td>:</td>
+        <td>
+          <input type="text" name="cemail" value="">
+        </td>
+      </tr>
+
+      <tr>
+        <td>Address</td>
+        <td>:</td>
+        <td>
+          <input type="text" name="cadd" value="">
+        </td>
+      </tr>
+
+      <tr>
+        <td>DOB</td>
+        <td>:</td>
+        <td>
+          <input type="date" name="cdob" value="">
+        </td>
+      </tr>
+
+      <tr>
+        <td>Phone_no</td>
+        <td>:</td>
+        <td>
+          <input type="number" name="cpno" value="">
+        </td>
+      </tr>
+
+  		<tr>
+  			<td colspan="3"></td>
+  		</tr>
+  		<tr>
+  			<td colspan="3"></td>
+  		</tr>
+  		<tr>
+  			<td colspan="3"></td>
+  		</tr>
+  		<tr>
+  			<td colspan="3"></td>
+  		</tr>
+  		<tr>
+  			<td colspan="3"></td>
+  		</tr>
+
+
+  		<tr>
+  			<td colspan="3"></td>
+  		</tr>
+  		<tr>
+  			<td colspan="3"></td>
+  		</tr>
+  		<tr>
+  			<td colspan="3"></td>
+  		</tr>
+  		<tr>
+  			<td colspan="3"></td>
+  		</tr>
+  		<tr>
+  			<td colspan="3"></td>
+  		</tr>
+
+  		<tr>
+  			<td colspan="3" align="right"><a href="profile.php"><input type="submit" name="submit" value="Done"></a></td>
+  		</tr>
+
+  	</table>
+  </form>
+
 
 </body>
 </html>

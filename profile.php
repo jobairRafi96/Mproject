@@ -1,9 +1,16 @@
 <?php
  	session_start();
 //if session was destroy in log out page we need to do login again.
+// TODO: login is not done
  	if (!isset($_SESSION['uname'])) {
  		header("location: login.php");
  	}
+  require_once('servies/functions.php');
+  //chef id will be fou
+  $chefId = 2;
+  $result = chefpi($chefId);
+  $_SESSION['chefpi']=$result;
+
 ?>
 
 <!DOCTYPE html>
@@ -37,89 +44,67 @@
 			</td>
 		</tr>
 
-			<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
+
 
 		<tr>
 			<td>Chef Name</td>
 			<td>:</td>
 			<!-- use chef name by session -->
-			<td><?php echo $_SESSION['uname']; ?></td>
+			<td><?php echo $_SESSION['chefpi']['name']; ?></td>
 		</tr>
 
 
+
 		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td>Password</td>
+			<td>Email</td>
 			<td>:</td>
 			<td>
-				<?php echo $_SESSION['pass']; ?>
+				<?php echo $_SESSION['chefpi']['email']; ?>
 			</td>
 		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
+
+    <tr>
+      <td>DOB</td>
+      <td>:</td>
+      <td>
+        <?php echo $_SESSION['chefpi']['dob']; ?>
+      </td>
+    </tr>
+
+    <tr>
+      <td>address</td>
+      <td>:</td>
+      <td>
+        <?php echo $_SESSION['chefpi']['address'] ?>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Phone</td>
+      <td>:</td>
+      <td>
+        <?php echo $_SESSION['chefpi']['phone_no'] ?>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Work Under</td>
+      <td>:</td>
+      <td>
+      <?php // TODO: under_mgrid should be a name ?>
+        <?php echo $_SESSION['chefpi']['under_mgrid']; ?>
+      </td>
+    </tr>
+
 
 		<tr>
-			<td>Balance</td>
+			<td>Tip Amount</td>
 			<td>:</td>
-			<td>$100</td>
+      <?php // TODO: calculationg tip amount ?>
+			<td><?php echo $_SESSION['chefpi']['tip_amount']; ?></td>
 		</tr>
 
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
-		<tr>
-			<td colspan="3"></td>
-		</tr>
+
 
 		<tr>
 			<td colspan="3" align="right"><a href="editprofile.php"><input type="submit" name="submit" value="Edit"></a></td>
