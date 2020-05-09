@@ -47,10 +47,18 @@
     return $user;
   }
 
-	function editPI($un,$id){
+	function editPI($filename,$un,$em,$add,$dob,$phn,$id){
 
 		$con = getConnection();
-		$sql = "update chefpi set name = '{$un}' where chef_id='{$id}'";
+		$sql = "update chefpi set profile_pic = '{$filename}', name = '{$un}', email ='{$em}', address ='{$add}', dob ='{$dob}', phone_no ='{$phn}'  where chef_id='{$id}'";
+		$result = mysqli_query($con, $sql);
+
+		return $result;
+	}
+
+	function editPassword($uid,$pass){
+		$con = getConnection();
+		$sql = "update user set password = '{$pass}' where user_id='{$uid}'";
 		$result = mysqli_query($con, $sql);
 
 		return $result;

@@ -7,12 +7,32 @@
   require_once('../servies/functions.php');
   // session data from database
   $un = $_POST['cname'];
+  $pass = $_POST['cpass'];
+  $em = $_POST['cemail'];
+  $add = $_POST['cadd'];
+  $dob = $_POST['cdob'];
+  $phn = $_POST['cphn'];
+  $pp = $_POST['mypic'];
   $id=$_SESSION['chefpi']['chef_id'];
+  $uid=$_SESSION['chefpi']['user_id'];
 
-  $result = editPI($un,$id);
+      $filename = $_FILES['mypic']['name'];
+  		$dest = "../upload/".$filename;
+  		$src = $_FILES['mypic']['tmp_name'];
+
+  		if(move_uploaded_file($src, $dest)){
+  			$_SESSION['pic'] = $filename;
+  		}else{
+  			echo "Error";
+  		}
+
+  // TODO: other date is not done
+  $result = editPI($filename,$un,$em,$add,$dob,$phn,$id);
 
   if ($result) {
-    echo "edit done";
+
+  editPassword($uid,$pass);
+  header("location: ../profile.php");
     // $_SESSION['uname'] = $un;
   }else{
     echo "error";

@@ -6,7 +6,7 @@
  		header("location: login.php");
  	}
   require_once('servies/functions.php');
-  //chef id will be fou
+  //chef id will be found with login check;
   $chefId = 2;
   $result = chefpi($chefId);
   $_SESSION['chefpi']=$result;
@@ -40,7 +40,11 @@
 			<td>Profile Pic</td>
 			<td>:</td>
 			<td>
-				<img src="pic/p.png" width="50px" height="50px" alt="profile pic" align="center">
+        <?php if ($_SESSION['chefpi']['profile_pic']==""){ ?>
+          <img src="pic/p.png" width="50px" height="50px" alt="profile pic" align="center">
+          <?php } else{ ?>
+				<img src="upload/<?=$_SESSION['pic']?>" width="50px" height="50px" alt="profile pic" align="center">
+        <?php } ?>
 			</td>
 		</tr>
 
@@ -83,6 +87,7 @@
       <td>Phone</td>
       <td>:</td>
       <td>
+        <?php // TODO: in database phone_no should be string ?>
         <?php echo $_SESSION['chefpi']['phone_no'] ?>
       </td>
     </tr>

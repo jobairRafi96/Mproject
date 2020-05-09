@@ -28,14 +28,14 @@
 
 <fieldset>
 	<legend>Profile</legend>
-  <form  action="php/editcheck.php" method="post">
+  <form  action="php/editcheck.php" method="post" enctype="multipart/form-data">
     <table align="center">
 
   		<tr>
   			<td>Profile Pic</td>
   			<td>:</td>
   			<td>
-  				<input type="file" name="profilePic" value="">
+  				<input type="file" name="mypic" value="">
   			</td>
   		</tr>
 
@@ -86,7 +86,7 @@
         <td>Phone_no</td>
         <td>:</td>
         <td>
-          <input type="number" name="cpno" value="">
+          <input type="number" name="cphn" value="">
         </td>
       </tr>
 
