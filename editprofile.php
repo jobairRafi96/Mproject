@@ -28,7 +28,7 @@
 
 <fieldset>
 	<legend>Profile</legend>
-  <form  action="php/editcheck.php" method="post" enctype="multipart/form-data">
+  <form id="editprofileValidation" action="php/editcheck.php" method="post" enctype="multipart/form-data">
     <table align="center">
 
   		<tr>
@@ -54,7 +54,7 @@
   			<td>Password</td>
   			<td>:</td>
   			<td>
-  				<input type="Password" name="cpass" value="">
+  				<input id="cpass" type="Password" name="cpass" value="">
   			</td>
   		</tr>
 
@@ -124,11 +124,13 @@
   		</tr>
 
   		<tr>
-  			<td colspan="3" align="right"><a href="profile.php"><input type="submit" name="submit" value="Done"></a></td>
+  			<td colspan="3" align="right"><input type="button"  value="Done" onclick="editprofileValidation()"></td>
   		</tr>
 
   	</table>
   </form>
+
+  <script src="index.js" charset="utf-8"></script>
 
 
 </body>
