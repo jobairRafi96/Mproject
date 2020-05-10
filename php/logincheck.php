@@ -7,16 +7,19 @@
 		$username = $_REQUEST['uname'];
 		$password = $_REQUEST['pass'];
 
+
 			include('../servies/functions.php');
 
 				if ( empty(trim($username)) || empty(trim($password)) ) {
 					echo "Null submission";
 				}else{
 					$user = validate($username, $password);
+					var_dump($user);
 
 					if(count($user) > 0 ){
 						$_SESSION['user'] = $user;
 						$_SESSION['uname']=$username;
+
 
 						header("location: ../chef.php");
 					}else{

@@ -1,14 +1,20 @@
 <?php
  	session_start();
 //if session was destroy in log out page we need to do login again.
-// TODO: login is not done
+// TODO: login is done but not properly complete
+// TODO: by login i need a session of user
+// TODO: email must be unique when register;
+// TODO: for work this code of mine the todos needed to be done;
  	if (!isset($_SESSION['uname'])) {
  		header("location: login.php");
  	}
+  $username = $_SESSION['uname'];
   require_once('servies/functions.php');
-  //chef id will be found with login check;
-  $chefId = 2;
-  $result = chefpi($chefId);
+  //finding user id by $_SESSION['user']
+
+ $userId=$_SESSION['user']['user_id'];
+
+  $result = chefpi($userId);
   $_SESSION['chefpi']=$result;
 
 ?>
