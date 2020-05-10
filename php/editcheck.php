@@ -12,11 +12,10 @@
   $add = $_POST['cadd'];
   $dob = $_POST['cdob'];
   $phn = $_POST['cphn'];
-  $pp = $_POST['mypic'];
   $id=$_SESSION['chefpi']['chef_id'];
   $uid=$_SESSION['chefpi']['user_id'];
 
-//profile pic 
+//profile pic
       $filename = $_FILES['mypic']['name'];
   		$dest = "../upload/".$filename;
   		$src = $_FILES['mypic']['tmp_name'];
@@ -27,8 +26,9 @@
   			echo "Error";
   		}
 
+      $pp1= $dest;
 
-  $result = editPI($filename,$un,$em,$add,$dob,$phn,$id);
+  $result = editPI($pp1,$un,$em,$add,$dob,$phn,$id);
 
   if ($result) {
 

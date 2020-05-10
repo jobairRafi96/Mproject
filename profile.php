@@ -49,7 +49,7 @@
         <?php if ($_SESSION['chefpi']['profile_pic']==""){ ?>
           <img src="pic/p.png" width="50px" height="50px" alt="profile pic" align="center">
           <?php } else{ ?>
-				<img src="upload/<?=$_SESSION['pic']?>" width="50px" height="50px" alt="profile pic" align="center">
+				<img src="upload/<?=$_SESSION['chefpi']['profile_pic']?>" width="50px" height="50px" alt="profile pic" align="center">
         <?php } ?>
 			</td>
 		</tr>

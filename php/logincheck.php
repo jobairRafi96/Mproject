@@ -13,19 +13,20 @@
 				if ( empty(trim($username)) || empty(trim($password)) ) {
 					echo "Null submission";
 				}else{
-					$user = validate($username, $password);
-					var_dump($user);
+								$user = validate($username, $password);
+								if(is_null($user)){
+									echo "invalid username/password";
+								}else{
+										if(count($user) > 0 ){
+											$_SESSION['user'] = $user;
+											$_SESSION['uname']=$username;
 
-					if(count($user) > 0 ){
-						$_SESSION['user'] = $user;
-						$_SESSION['uname']=$username;
-
-
-						header("location: ../chef.php");
-					}else{
-						echo "invalid username/password";
-					}
-				}
+											header("location: ../chef.php");
+										}else{
+											echo "invalid username/password";
+										}
+								 }
+				     }
 
 	}
 	else{

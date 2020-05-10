@@ -57,10 +57,10 @@
 		return $user;
 	}
 
-	function editPI($filename,$un,$em,$add,$dob,$phn,$id){
+	function editPI($pp1,$un,$em,$add,$dob,$phn,$id){
 
 		$con = getConnection();
-		$sql = "update chefpi set profile_pic = '{$filename}', name = '{$un}', email ='{$em}', address ='{$add}', dob ='{$dob}', phone_no ='{$phn}'  where chef_id='{$id}'";
+		$sql = "update chefpi set profile_pic = '{$pp1}', name = '{$un}', email ='{$em}', address ='{$add}', dob ='{$dob}', phone_no ='{$phn}'  where chef_id='{$id}'";
 		$result = mysqli_query($con, $sql);
 
 		return $result;
