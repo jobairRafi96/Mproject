@@ -9,7 +9,7 @@
 	<title>Login Page</title>
 </head>
 <body>
-	<form method="POST" action="logincheck.php">
+	<form method="POST" action="php/logincheck.php">
 
 			<table align="center">
 				<tr>
@@ -23,7 +23,7 @@
 				<tr>
 					<td>User Name</td>
 					<td>:</td>
-					<td><input type="text" name="uname" value="" size="40" placeholder="Name"></td>
+					<td><input type="text" name="uname" value="" size="40" placeholder="Name/Email"></td>
 				</tr>
 
 				<tr>
@@ -40,14 +40,6 @@
 					<td colspan="3"></td>
 				</tr>
 
-				<tr>
-					<td>User Type</td>
-					<td>:</td>
-					<td><input type="radio" name="utype" value="owner">Owner
-						<input type="radio" name="utype" value="manager">Manager
-						<input type="radio" name="utype" value="chef">Chef
-						<input type="radio" name="utype" value="guest">Guest</td>
-				</tr>
 
 				<tr>
 					<td colspan="3"></td>

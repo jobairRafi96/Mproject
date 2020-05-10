@@ -5,22 +5,12 @@
 	function validate($username, $password){
 
 		$con = getConnection();
-		$sql = "select * from users where username='{$username}' and password='{$password}'";
+		$sql = "select * from user where email='{$username}' and password='{$password}'";
 		$result = mysqli_query($con, $sql);
 		$user = mysqli_fetch_assoc($result);
 
 		return $user;
 	}
-
-  function chefpi($id){
-
-    $con = getConnection();
-    $sql = "select * from chefpi where chef_id='{$id}'";
-    $result = mysqli_query($con, $sql);
-    $user = mysqli_fetch_assoc($result);
-
-    return $user;
-  }
 
 	function usertype($username){
 
@@ -46,6 +36,26 @@
     $user = mysqli_fetch_assoc($result);
     return $user;
   }
+
+	function chefpi($id){
+
+    $con = getConnection();
+    $sql = "select * from chefpi where chef_id='{$id}'";
+    $result = mysqli_query($con, $sql);
+    $user = mysqli_fetch_assoc($result);
+
+    return $user;
+  }
+
+	function loginValidate($uname, $password){
+
+		$con = getConnection();
+		$sql = "select * from user email='{$uname}' and password='{$password}'";
+		$result = mysqli_query($con, $sql);
+		$user = mysqli_fetch_assoc($result);
+
+		return $user;
+	}
 
 	function editPI($filename,$un,$em,$add,$dob,$phn,$id){
 

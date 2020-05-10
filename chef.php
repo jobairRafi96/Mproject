@@ -1,6 +1,7 @@
 <?php
  	session_start();
 //if session was destroy in log out page we need to do login again.
+//$_SESSION['uname'] means email in user table.
  	if (!isset($_SESSION['uname'])) {
  		header("location: login.php");
  	}
@@ -21,7 +22,7 @@
 			<td><img src="pic/logo.png" alt="logo" width="50px" height="50px"></td>
 			<td><h1>Chef's Corner</h1></td>
 			<td><img src="pic/logo.png" alt="logo" width="50px" height="50px"></td>
-			
+
 			<td  align="right"><a href="chef.php"><img src="pic/home.png" width="50px" height="50px" align="center"></a></td>
 		</tr>
 		<tr>
@@ -56,7 +57,7 @@
 			<td colspan="6"></td>
 		</tr>
 
-	
+
 		<tr>
 			<td><a href="menu.php"><h2>Menu</h2></a></td>
 			<td><a href="menu.php"><img align="left" src="pic/menu1.jfif" width="100px" height="100px"></a></td>
@@ -64,9 +65,9 @@
 			<td><a href="grocery.php"><img align="right" src="pic/grocery.png" width="100px" height="100px"></a></td>
 			<td><a href="grocery.php"><h2>Grocery</h2></a></td>
 		</tr>
-	
 
-	
+
+
 		<tr>
 			<td><a href="message.php"><h2>Message</h2></td>
 			<td><a href="message.php"><img align="right" src="pic/mgs.png" width="100px" height="100px"></td>
@@ -74,14 +75,14 @@
 			<td><a href="review.php"><img align="right" src="pic/review.png" width="100px" height="100px"></a></td>
 			<td><a href="review.php"><h2>Reviews</h2></a></td>
 		</tr>
-	
-	
+
+
 		<tr>
 			<td colspan="2"></td>
 			<td ><a href="service.php"><img align="left" src="pic/service.png" width="95px" height="95px"></a></td>
 			<td ><a href="service.php"><h2>Service</h2></a></td>
 			<td colspan="2"></td>
-			
+
 		</tr>
 
 
@@ -100,7 +101,7 @@
 		</tr> -->
 
 
-		
+
 	</table>
 
 </body>

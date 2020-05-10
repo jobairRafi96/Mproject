@@ -1,4 +1,0 @@
-jubair rafi|1234
-admin|1234
-pial|123
-user|123
