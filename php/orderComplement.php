@@ -8,16 +8,28 @@
   require_once('../servies/functions.php');
   $sid=$_POST['Id'];
 
+  $item['id'] = getAllorder1($sid);
+  $itemId = (int)$item['id']['item_id'];
+  $orderedQuantity = (int)$item['id']['quantity'];
+  $item['qNum'] = item($itemId);
+  $itemQuantity = (int)$item['qNum']['quantity'];
+  $newItemQuantity = $itemQuantity-$orderedQuantity;
 
-  $complementResult = orderCmp($sid);
-
-
-
-  if($complementResult){
-      // header("location: ../order.php");
-      echo "complemented";
+//if ordered item is grater than the item quantity then no action will happened, validation
+  if ($newItemQuantity>=0) {
+    updateQuantityItem($newItemQuantity,$itemId);
+    orderCmp($sid);
+    $check = true;
+  }else{
+    $check = false;
   }
-  else{
-    echo "error";
-  }
+
+    if($GLOBALS['check']){
+      echo "COMPLEMENTED";
+    }
+    else{
+      echo "NO ITEM";
+    }
+
+
  ?>

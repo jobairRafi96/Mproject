@@ -8,7 +8,9 @@
   require_once('../servies/functions.php');
   $sid=$_GET['Id'];
 
+
   $doneResult = orderDlt($sid);
+
 
   if($doneResult){
       header("location: ../order.php");

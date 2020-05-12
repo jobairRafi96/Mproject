@@ -1,0 +1,8 @@
+$item['id'] = getAllorder1($sid);
+$itemId = (int)$item['id']['item_id'];
+$orderedQuantity = (int)$item['id']['quantity'];
+$item['qNum'] = item($itemId);
+$itemQuantity = (int)$item['qNum']['quantity'];
+$newItemQuantity = $itemQuantity-$orderedQuantity;
+
+updateQuantityItem($newItemQuantity,$itemId);

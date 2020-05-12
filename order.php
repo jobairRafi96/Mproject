@@ -139,6 +139,7 @@ function complement(id){
                   elementid= "cmpbtnid"+id;
                   //i can use a css animation.
                   document.getElementById(elementid).innerHTML=this.responseText;
+                  document.getElementById(elementid).disabled = true;
 
               }
           };
@@ -157,7 +158,7 @@ function complement(id){
                     elementid= "cnlbtnid"+id;
                     //i can use a css animation.
                     document.getElementById(elementid).innerHTML=this.responseText;
-
+                    document.getElementById(elementid).disabled = true;
                 }
             };
 
@@ -174,6 +175,7 @@ function complement(id){
                     elementid= "donebtnid"+id;
                     //i can use a css animation.
                     document.getElementById(elementid).innerHTML=this.responseText;
+                    document.getElementById(elementid).disabled = true; 
 
                 }
             };

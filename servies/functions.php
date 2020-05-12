@@ -70,14 +70,16 @@
 		$result = mysqli_query($con, $sql);
 		return $result;
 	}
-	function getAllorder1($sidAjex){
+
+	function getAllorder1($sid){
 		$con = getConnection();
-		$sql = "select * from orderlist where serial_id={$sidAjex}";
+		$sql = "select * from orderlist where serial_id='{$sid}'";
 		$result = mysqli_query($con, $sql);
 		$user = mysqli_fetch_assoc($result);
 
-    return $user;
+		return $user;
 	}
+
 
 	function Guestpi($gid){
 		$con = getConnection();
@@ -96,6 +98,15 @@
 
     return $user;
 	}
+
+	function updateQuantityItem($newItemQuantity,$itemId){
+		$con = getConnection();
+    $sql = "update item set quantity = '{$newItemQuantity}' where item_id='{$itemId}'";
+    $result = mysqli_query($con, $sql);
+
+    return $result;
+	}
+
 
 	function orderCmp($sid){
 		$comment = "complemented";
