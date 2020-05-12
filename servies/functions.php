@@ -115,6 +115,14 @@
     return $result;
 	}
 
+	function itemAdd($itemName,$itemQuantity,$itemPrice,$mid){
+		$con = getConnection();
+    $sql = "insert into item values('','{$itemName}','{$itemQuantity}','{$itemPrice}', '{$mid}')";
+    $result = mysqli_query($con, $sql);
+
+    return $result;
+	}
+
 	function getAllitem(){
 		$con = getConnection();
 		$sql = "select * from item";

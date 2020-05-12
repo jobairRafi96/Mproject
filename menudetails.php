@@ -47,6 +47,15 @@
         font-size: 18px;
       }
 
+      .black {background-color: #000000;} /* Red */
+      .black:hover{
+        color: #000000;
+        background-color: white;
+        font-style: oblique;
+        border: 5px solid #000000;
+        font-size: 18px;
+      }
+
 </style>
 
 
@@ -103,7 +112,9 @@
 
 
 		<tr>
-			<td colspan="5" align="center"><a href="additem.php"><input type="submit" name="submit" value="ADD Item"></a></td>
+			<td colspan="5" align="center"><a href="additem.php?Id=<?=$mid ?>">
+        <button class="button black">ADD ITEM</button></a>
+      </td>
 		</tr>
 
 
