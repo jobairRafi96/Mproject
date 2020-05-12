@@ -4,6 +4,10 @@
  	if (!isset($_SESSION['uname'])) {
  		header("location: login.php");
  	}
+
+  require_once('servies/functions.php');
+  //finding user id by $_SESSION['user']
+  $result = getAllorder();
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +15,26 @@
 <head>
 	<title>Order LIst</title>
 </head>
+
+<style media="screen">
+      .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      }
+
+      .blue {background-color: #008CBA;} /* Blue */
+      .red {background-color: #f44336;} /* Red */
+
+</style>
+
 <body>
 
 	<table align="center">
@@ -25,143 +49,104 @@
 	<hr>
 	<hr>
 
-	
-<table width="100%">
-		<tr><td width="10%"><h2>Serial</h2></td>
-			<td width="20%"><h2>Guest Name</h2></td>
-			<td width="20%" colspan="2"><h2 align="center">Item name</h2></td>
-			<td width="10%"><h2 align="center">Quantity</h2></td>
-			<td width="10%"><h2 align="center">Price</h2></td>
-			<td width="10%"><h2>Complement</h2></td>
-			<td width="10%"><h2 align="center">Cancel</h2></td>
-			<td width="10%"><h2 align="center">Done</h2></td>
-		</tr>
-		
-		<tr><td width="10%">01</td>
-			<td width="20%">Mohammad Zafor Iqbal</td>
-			<td width="20%" colspan="2" align="center">Pasta Basta</td>
-			<td width="10%" align="center">3</td>
-			<td width="10%" align="center">200tk</td>
-			<td width="10%" align="center"><input type="checkbox" name="complement" value=""></td>
-			<td width="10%" align="center"><a href="order.php"><img src="pic/cancel.png" width="30px" height="30px"></a>
-				</td>
-			<td width="10%" align="center"><a href="order.php">
-				<img src="pic/select.png" width="30px" height="30px"></a></td>
-		</tr>
 
-		<tr><td width="10%">02</td>
-			<td width="20%">Mohammad Zafor Iqbal</td>
-			<td width="20%" colspan="2" align="center">Pasta Basta</td>
-			<td width="10%" align="center">3</td>
-			<td width="10%" align="center">200tk</td>
-			<td width="10%" align="center"><input type="checkbox" name="complement" value=""></td>
-			<td width="10%" align="center"><a href="order.php"><img src="pic/cancel.png" width="30px" height="30px"></a>
-				</td>
-			<td width="10%" align="center"><a href="order.php">
-				<img src="pic/select.png" width="30px" height="30px"></a></td>
-		</tr>
+  <table width="100%">
+  		<tr><td width="10%"><h2>Serial</h2></td>
+  			<td width="20%"><h2>Guest Name</h2></td>
+  			<td width="20%" colspan="2"><h2 align="center">Item name</h2></td>
+  			<td width="10%"><h2 align="center">Quantity</h2></td>
+  			<td width="10%"><h2>Complementary</h2></td>
+  			<td width="10%"><h2 align="center">Cancel</h2></td>
+  			<td width="10%"><h2 align="center">Done</h2></td>
+  		</tr>
 
-		<tr><td width="10%">03</td>
-			<td width="20%">Mohammad Zafor Iqbal</td>
-			<td width="20%" colspan="2" align="center">Pasta Basta</td>
-			<td width="10%" align="center">3</td>
-			<td width="10%" align="center">200tk</td>
-			<td width="10%" align="center"><input type="checkbox" name="complement" value=""></td>
-			<td width="10%" align="center"><a href="order.php"><img src="pic/cancel.png" width="30px" height="30px"></a>
-				</td>
-			<td width="10%" align="center"><a href="order.php">
-				<img src="pic/select.png" width="30px" height="30px"></a></td>
-		</tr>
+  <?php	while($row = mysqli_fetch_assoc($result)){ ?>
 
-		<tr><td width="10%">04</td>
-			<td width="20%">Mohammad Zafor Iqbal</td>
-			<td width="20%" colspan="2" align="center">Pasta Basta</td>
-			<td width="10%" align="center">3</td>
-			<td width="10%" align="center">200tk</td>
-			<td width="10%" align="center"><input type="checkbox" name="complement" value=""></td>
-			<td width="10%" align="center"><a href="order.php"><img src="pic/cancel.png" width="30px" height="30px"></a>
-				</td>
-			<td width="10%" align="center"><a href="order.php">
-				<img src="pic/select.png" width="30px" height="30px"></a></td>
-		</tr>
+<?php if ($row['order_state']=="") { ?>
 
-		<tr><td width="10%">05</td>
-			<td width="20%">Mohammad Zafor Iqbal</td>
-			<td width="20%" colspan="2" align="center">Pasta Basta</td>
-			<td width="10%" align="center">3</td>
-			<td width="10%" align="center">200tk</td>
-			<td width="10%" align="center"><input type="checkbox" name="complement" value=""></td>
-			<td width="10%" align="center"><a href="order.php"><img src="pic/cancel.png" width="30px" height="30px"></a>
-				</td>
-			<td width="10%" align="center"><a href="order.php">
-				<img src="pic/select.png" width="30px" height="30px"></a></td>
-		</tr>
+  		<tr><td width="10%" class="serial"><?=$row['serial_id']?></td>
 
-		<tr><td width="10%">06</td>
-			<td width="20%">Mohammad Zafor Iqbal</td>
-			<td width="20%" colspan="2" align="center">Pasta Basta</td>
-			<td width="10%" align="center">3</td>
-			<td width="10%" align="center">200tk</td>
-			<td width="10%" align="center"><input type="checkbox" name="complement" value=""></td>
-			<td width="10%" align="center"><a href="order.php"><img src="pic/cancel.png" width="30px" height="30px"></a>
-				</td>
-			<td width="10%" align="center"><a href="order.php">
-				<img src="pic/select.png" width="30px" height="30px"></a></td>
-		</tr>
+        <?php $gName['guestpi']=Guestpi($row['guest_id']) ?>
+  			<td width="20%"><?=$gName['guestpi']['name']?></td>
 
-		<tr><td width="10%">07</td>
-			<td width="20%">Mohammad Zafor Iqbal</td>
-			<td width="20%" colspan="2" align="center">Pasta Basta</td>
-			<td width="10%" align="center">3</td>
-			<td width="10%" align="center">200tk</td>
-			<td width="10%" align="center"><input type="checkbox" name="complement" value=""></td>
-			<td width="10%" align="center"><a href="order.php"><img src="pic/cancel.png" width="30px" height="30px"></a>
-				</td>
-			<td width="10%" align="center"><a href="order.php">
-				<img src="pic/select.png" width="30px" height="30px"></a></td>
-		</tr>
+        <?php $itemName['item']=item($row['item_id']) ?>
+  			<td width="20%" colspan="2" align="center"><?=$itemName['item']['item_name']?></td>
 
-		<tr><td width="10%">08</td>
-			<td width="20%">Mohammad Zafor Iqbal</td>
-			<td width="20%" colspan="2" align="center">Pasta Basta</td>
-			<td width="10%" align="center">3</td>
-			<td width="10%" align="center">200tk</td>
-			<td width="10%" align="center"><input type="checkbox" name="complement" value=""></td>
-			<td width="10%" align="center"><a href="order.php"><img src="pic/cancel.png" width="30px" height="30px"></a>
-				</td>
-			<td width="10%" align="center"><a href="order.php">
-				<img src="pic/select.png" width="30px" height="30px"></a></td>
-		</tr>
+  			<td width="10%" align="center"><?=$row['quantity']?></td>
 
-		<tr><td width="10%">09</td>
-			<td width="20%">Mohammad Zafor Iqbal</td>
-			<td width="20%" colspan="2" align="center">Pasta Basta</td>
-			<td width="10%" align="center">3</td>
-			<td width="10%" align="center">200tk</td>
-			<td width="10%" align="center"><input type="checkbox" name="complement" value=""></td>
-			<td width="10%" align="center"><a href="order.php"><img src="pic/cancel.png" width="30px" height="30px"></a>
-				</td>
-			<td width="10%" align="center"><a href="order.php">
-				<img src="pic/select.png" width="30px" height="30px"></a></td>
-		</tr>
-	</table>
+  			<td width="10%" align="center">
+          <button class="button blue" id="cmpbtnid<?=$row['serial_id']?>" onclick="complement(<?=$row['serial_id']?>)">complement</button></td>
+
+  			<td width="10%" align="center">
+          <button class="button red" id="cnlbtnid<?=$row['serial_id']?>" onclick="cancel(<?=$row['serial_id']?>)">cancelled</button></td>
+  				</td>
+  			<td width="10%" align="center">
+  				<button class="button" id="donebtnid<?=$row['serial_id']?>" onclick="done(<?=$row['serial_id']?>)">proceed</button>
+  		</tr>
+        <?php } ?>
+  	<?php } ?>
+
+  	</table>
+
+
 	<hr>
 	<hr>
+
 
 		<!-- Daily order list -->
 	<table align="center">
 		<tr>
 			<td><a href="dailyorder.php"><img src="pic/daily.png" width="80px" height="80px"></a></td>
 			<td><a href="dailyorder.php"><h2>Daily Ordered item</h2></a></td>
-			<td><a href="emargency.php"><img src="pic/emergency.png" width="80px" height="80px"></a></td>
-			<td><a href="emargency.php"><h2>Emergency Order</h2></a></td>
 		</tr>
 
 	</table>
 
-<!-- cancel nad done with button -->
+<!-- cancel and done with button -->
 
+
+<script type="text/javascript">
+function complement(id){
+
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+
+              if (this.readyState == 4 && this.status == 200){
+                  elementid= "cmpbtnid"+id;
+                  //i can use a css animation.
+                  document.getElementById(elementid).innerHTML=this.responseText;
+
+              }
+          };
+
+          xhttp.open("POST", "php/orderComplement.php", true);
+    			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    			xhttp.send("Id="+id);
+      }
+
+
+  function cancel(id){
+
+      }
+
+  function done(id){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+
+                if (this.readyState == 4 && this.status == 200){
+                    elementid= "donebtnid"+id;
+                    //i can use a css animation.
+                    document.getElementById(elementid).innerHTML=this.responseText;
+
+                }
+            };
+
+            xhttp.open("POST", "php/orderDone.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("Id="+id);
+      }
+
+</script>
 
 </body>
 </html>
-

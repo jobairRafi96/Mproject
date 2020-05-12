@@ -2,7 +2,7 @@
  	session_start();
 //if session was destroy in log out page we need to do login again.
  	if (!isset($_SESSION['uname'])) {
- 		header("location: login.php");
+ 		header("location: ../login.php");
  	}
   require_once('../servies/functions.php');
   // session data from database
@@ -32,7 +32,7 @@
 
   if ($result) {
 
-  editPassword($uid,$pass);
+  editPassword($uid,$pass,$em);
   header("location: ../profile.php");
     // $_SESSION['uname'] = $un;
   }else{

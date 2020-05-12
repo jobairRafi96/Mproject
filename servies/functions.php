@@ -47,16 +47,6 @@
     return $user;
   }
 
-	function loginValidate($uname, $password){
-
-		$con = getConnection();
-		$sql = "select * from user where email='{$uname}' and password='{$password}'";
-		$result = mysqli_query($con, $sql);
-		$user = mysqli_fetch_assoc($result);
-
-		return $user;
-	}
-
 	function editPI($pp1,$un,$em,$add,$dob,$phn,$id){
 
 		$con = getConnection();
@@ -66,12 +56,63 @@
 		return $result;
 	}
 
-	function editPassword($uid,$pass){
+	function editPassword($uid,$pass,$em){
 		$con = getConnection();
-		$sql = "update user set password = '{$pass}' where user_id='{$uid}'";
+		$sql = "update user set password = '{$pass}', email ='{$em}' where user_id='{$uid}'";
 		$result = mysqli_query($con, $sql);
 
 		return $result;
+	}
+
+	function getAllorder(){
+		$con = getConnection();
+		$sql = "select * from orderlist";
+		$result = mysqli_query($con, $sql);
+		return $result;
+	}
+	function getAllorder1($sidAjex){
+		$con = getConnection();
+		$sql = "select * from orderlist where serial_id={$sidAjex}";
+		$result = mysqli_query($con, $sql);
+		$user = mysqli_fetch_assoc($result);
+
+    return $user;
+	}
+
+	function Guestpi($gid){
+		$con = getConnection();
+    $sql = "select * from guestpi where guest_id='{$gid}'";
+    $result = mysqli_query($con, $sql);
+    $user = mysqli_fetch_assoc($result);
+
+    return $user;
+	}
+
+	function item($iid){
+		$con = getConnection();
+    $sql = "select * from item where item_id='{$iid}'";
+    $result = mysqli_query($con, $sql);
+    $user = mysqli_fetch_assoc($result);
+
+    return $user;
+	}
+
+	function orderCmp($sid){
+		$comment = "complemented";
+		$con = getConnection();
+    $sql = "update orderlist set order_state = '{$comment}' where serial_id='{$sid}'";
+    $result = mysqli_query($con, $sql);
+
+    return $result;
+	}
+
+	function orderDone($sid){
+		$comment = "Done";
+		$con = getConnection();
+    $sql = "update orderlist set order_state = '{$comment}' where serial_id='{$sid}'";
+    $result = mysqli_query($con, $sql);
+
+    return $result;
 	}
 
 

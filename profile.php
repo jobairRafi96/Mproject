@@ -118,7 +118,7 @@
 
 
 		<tr>
-			<td colspan="3" align="right"><a href="editprofile.php"><input type="submit" name="submit" value="Edit"></a></td>
+			<td colspan="3" align="right"><a href="editprofile.php"><input type="button" name="submit" value="Edit"></a></td>
 		</tr>
 
 	</table>
