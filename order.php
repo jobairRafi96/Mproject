@@ -28,10 +28,32 @@
       font-size: 16px;
       margin: 4px 2px;
       cursor: pointer;
+      border-radius: .5rem;
+      }
+      .button:hover{
+        color: #4CAF50;
+        background-color: white;
+        font-style: oblique;
+        border: 5px solid #4CAF50;
+        font-size: 18px;
       }
 
       .blue {background-color: #008CBA;} /* Blue */
+      .blue:hover{
+        color: #008CBA;
+        background-color: white;
+        font-style: oblique;
+        border: 5px solid #008CBA;
+        font-size: 18px;
+      }
       .red {background-color: #f44336;} /* Red */
+      .red:hover{
+        color: #f44336;
+        background-color: white;
+        font-style: oblique;
+        border: 5px solid #f44336;
+        font-size: 18px;
+      }
 
 </style>
 
@@ -55,7 +77,7 @@
   			<td width="20%"><h2>Guest Name</h2></td>
   			<td width="20%" colspan="2"><h2 align="center">Item name</h2></td>
   			<td width="10%"><h2 align="center">Quantity</h2></td>
-  			<td width="10%"><h2>Complementary</h2></td>
+  			<td width="10%"><h2 align="center">Complement</h2></td>
   			<td width="10%"><h2 align="center">Cancel</h2></td>
   			<td width="10%"><h2 align="center">Done</h2></td>
   		</tr>
@@ -75,13 +97,15 @@
   			<td width="10%" align="center"><?=$row['quantity']?></td>
 
   			<td width="10%" align="center">
-          <button class="button blue" id="cmpbtnid<?=$row['serial_id']?>" onclick="complement(<?=$row['serial_id']?>)">complement</button></td>
+          <button class="button blue" id="cmpbtnid<?=$row['serial_id']?>" onclick="complement(<?=$row['serial_id']?>)">Click</button></td>
 
-  			<td width="10%" align="center">
-          <button class="button red" id="cnlbtnid<?=$row['serial_id']?>" onclick="cancel(<?=$row['serial_id']?>)">cancelled</button></td>
+  			<td width="10%" align="center"><a href="php/orderDlt.php?Id=<?=$row['serial_id']?>">
+          <button class="button red">Click</button></a>
+          </td>
+          <!-- <button class="button red" id="cnlbtnid<?=$row['serial_id']?>" onclick="cancel(<?=$row['serial_id']?>)">Click</button></td> -->
   				</td>
   			<td width="10%" align="center">
-  				<button class="button" id="donebtnid<?=$row['serial_id']?>" onclick="done(<?=$row['serial_id']?>)">proceed</button>
+  				<button class="button" id="donebtnid<?=$row['serial_id']?>" onclick="done(<?=$row['serial_id']?>)">Click</button>
   		</tr>
         <?php } ?>
   	<?php } ?>
@@ -126,7 +150,20 @@ function complement(id){
 
 
   function cancel(id){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
 
+                if (this.readyState == 4 && this.status == 200){
+                    elementid= "cnlbtnid"+id;
+                    //i can use a css animation.
+                    document.getElementById(elementid).innerHTML=this.responseText;
+
+                }
+            };
+
+            xhttp.open("POST", "php/orderDlt.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("Id="+id);
       }
 
   function done(id){

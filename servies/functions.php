@@ -115,6 +115,14 @@
     return $result;
 	}
 
+	function orderDlt($sid){
+		$con = getConnection();
+    $sql = "delete from orderlist where serial_id='{$sid}'";
+    $result = mysqli_query($con, $sql);
+
+    return $result;
+	}
+
 
 
 
