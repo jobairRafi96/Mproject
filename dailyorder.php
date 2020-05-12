@@ -4,6 +4,9 @@
  	if (!isset($_SESSION['uname'])) {
  		header("location: login.php");
  	}
+  require_once('servies/functions.php');
+  //finding user id by $_SESSION['user']
+  $result = getAllDailyOrder();
 ?>
 
 <!DOCTYPE html>
@@ -31,36 +34,20 @@
 			<td align="center"><h2>Item Quantity</h2></td>
 		</tr>
 
-		<tr>
-			<td align="center">01</td>
-			<td align="center">Shahi Tanduri</td>
-			<td align="center">20</td>
-		</tr>
+    <?php	while($row = mysqli_fetch_assoc($result)){ ?>
 
 		<tr>
-			<td align="center">02</td>
-			<td align="center">Shahi Tanduri</td>
-			<td align="center">20</td>
+			<td align="center"><?=$row['serial_id']?></td>
+
+      <?php $itemName['item']=item($row['item_id']) ?>
+
+			<td align="center"><?=$itemName['item']['item_name']?></td>
+			<td align="center"><?=$row['quantity']?></td>
 		</tr>
 
-		<tr>
-			<td align="center">03</td>
-			<td align="center">Shahi Tanduri</td>
-			<td align="center">20</td>
-		</tr>
+		<?php } ?>
 
-		<tr>
-			<td align="center">04</td>
-			<td align="center">Shahi Tanduri</td>
-			<td align="center">20</td>
-		</tr>
-
-		<tr>
-			<td align="center">05</td>
-			<td align="center">Shahi Tanduri</td>
-			<td align="center">20</td>
-		</tr>
-
+<?php // TODO: delete dumy data ?>
 		<tr>
 			<td align="center">06</td>
 			<td align="center">Shahi Tanduri</td>

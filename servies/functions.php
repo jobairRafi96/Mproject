@@ -134,6 +134,13 @@
     return $result;
 	}
 
+	function getAllDailyOrder(){
+		$con = getConnection();
+		$sql = "select * from dailyorderlist";
+		$result = mysqli_query($con, $sql);
+		return $result;
+	}
+
 
 
 
