@@ -4,6 +4,8 @@
  	if (!isset($_SESSION['uname'])) {
  		header("location: login.php");
  	}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -25,42 +27,34 @@
 	<hr>
 	<hr>
 	<br>
-	<br><br><br>
 
 
 	<table width="70%" align="center">
+
+
+
 		<tr>
-			<td align="center"><a href="menudetails.php"><img src="pic/brackfast.jpg" width="100px" height="200px"></a></td>
-			<td align="center"><a href="menudetails.php"><img src="pic/lunch.jpg" width="100px" height="200px"></a></td>
-			<td align="center"><a href="menudetails.php"><img src="pic/dinner.jpg" width="100px" height="200px"></a></td>
+			<td align="center"><a href="menudetails.php?Id=1"><img src="pic/menu1.jpg" width="100px" height="200px"></a></td>
+			<td align="center"><a href="menudetails.php?Id=2"><img src="pic/menu2.jpg" width="100px" height="200px"></a></td>
+			<td align="center"><a href="menudetails.php?Id=3"><img src="pic/menu3.jpg" width="100px" height="200px"></a></td>
 		</tr>
 		<tr>
-			<td><h2 align="center"><a href="menudetails.php">Breackfast</a></h2></td>
-			<td><h2 align="center"><a href="menudetails.php">Lunch</a></h2></td>
-			<td><h2 align="center"><a href="menudetails.php">Dinner</a></h2></td>
+			<td><h2 align="center"><a href="menudetails.php?Id=1">Breackfast</a></h2></td>
+			<td><h2 align="center"><a href="menudetails.php?Id=2">Lunch</a></h2></td>
+			<td><h2 align="center"><a href="menudetails.php?Id=3">Dinner</a></h2></td>
 		</tr>
 
 		<tr>
-			<td align="center"><a href="menudetails.php"><img src="pic/appetizer.jpg" width="100px" height="200px"></a></td>
-			<td align="center"><a href="menudetails.php"><img src="pic/drinks.jpg" width="100px" height="200px"></a></td>
-			<td align="center"><a href="menudetails.php"><img src="pic/mainfood.jfif" width="100px" height="200px"></a></td>
+			<td align="center"><a href="menudetails.php?Id=4"><img src="pic/appetizer.jpg" width="100px" height="200px"></a></td>
+			<td align="center"><a href="menudetails.php?Id=5"><img src="pic/drinks.jpg" width="100px" height="200px"></a></td>
+			<td align="center"><a href="menudetails.php?Id=6"><img src="pic/mainfood.jfif" width="100px" height="200px"></a></td>
 		</tr>
 		<tr>
-			<td><h2 align="center"><a href="menudetails.php">Appetizer</a></h2></td>
-			<td><h2 align="center"><a href="menudetails.php">Drinks</a></h2></td>
-			<td><h2 align="center"><a href="menudetails.php">Mainfood</a></h2></td>
+			<td><h2 align="center"><a href="menudetails.php?Id=4">Appetizer</a></h2></td>
+			<td><h2 align="center"><a href="menudetails.php?Id=5">Drinks</a></h2></td>
+			<td><h2 align="center"><a href="menudetails.php?Id=6">Mainfood</a></h2></td>
 		</tr>
 
-		<tr>
-			<td align="center"><a href="menudetails.php"><img src="pic/snacks.jpg" width="100px" height="200px"></a></td>
-			<td align="center"><a href="menudetails.php"><img src="pic/special.jpg" width="100px" height="200px"></a></td>
-			<td align="center"></td>
-		</tr>
-		<tr>
-			<td><h2 align="center"><a href="menudetails.php">Snacks</a></h2></td>
-			<td><h2 align="center"><a href="menudetails.php">Special</a></h2></td>
-			<td></td>
-		</tr>
 	</table>
 
 </body>

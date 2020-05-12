@@ -4,6 +4,11 @@
  	if (!isset($_SESSION['uname'])) {
  		header("location: login.php");
  	}
+  require_once('servies/functions.php');
+  $mid = $_GET['Id'];
+  $Serial=0;
+  $result = getAllitem();
+
 ?>
 
 <!DOCTYPE html>
@@ -11,8 +16,44 @@
 <head>
 	<title>menudetails</title>
 </head>
+<style media="screen">
+      .button {
+      background-color: #85a392; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: .5rem;
+      }
+      .button:hover{
+        color: #85a392;
+        background-color: white;
+        font-style: oblique;
+        border: 5px solid #85a392;
+        font-size: 18px;
+      }
+
+      .red {background-color: #f44336;} /* Red */
+      .red:hover{
+        color: #f44336;
+        background-color: white;
+        font-style: oblique;
+        border: 5px solid #f44336;
+        font-size: 18px;
+      }
+
+</style>
+
+
+
 <body>
 		<table align="center">
+
 		<tr>
 			<td><a href="menu.php"><img src="pic/back.png" width="40px" height="40px"></a></td>
 			<td><img src="pic/logo.png" alt="logo" width="50px" height="50px"></td>
@@ -24,6 +65,8 @@
 	<hr>
 	<hr>
 
+
+
 	<table width="80%" align="center">
 		<tr>
 			<td align="center"><h2>Serial</h2></td>
@@ -33,86 +76,37 @@
 			<td></td>
 		</tr>
 
-		<tr>
-			<td align="center">01</td>
-			<td align="center">Item Name</td>
-			<td align="center">Item price</td>
-			<td width="10%" align="center"><a href="menudetails.php"><img src="pic/cancel.png" width="30px" height="30px"></a>
-				</td>
-			<td><a href="edititem.php"><input type="submit" name="submit" value="Edit"></a></td>
-		</tr>
 
+  <?php	while($row = mysqli_fetch_assoc($result)){ ?>
+    <?php if ($row['menu_id']==$mid) {?>
+      <?php $GLOBALS['Serial']++;?>
 		<tr>
-			<td align="center">01</td>
-			<td align="center">Item Name</td>
-			<td align="center">Item price</td>
-			<td width="10%" align="center"><a href="menudetails.php"><img src="pic/cancel.png" width="30px" height="30px"></a>
-				</td>
-			<td><a href="edititem.php"><input type="submit" name="submit" value="Edit"></a></td>
-		</tr>
+			<td align="center"><?= $GLOBALS['Serial']?></td>
+			<td align="center"><?= $row['item_name']?></td>
+			<td align="center"><?= $row['price']?></td>
 
-		<tr>
-			<td align="center">01</td>
-			<td align="center">Item Name</td>
-			<td align="center">Item price</td>
-			<td width="10%" align="center"><a href="menudetails.php"><img src="pic/cancel.png" width="30px" height="30px"></a>
+			<td width="10%" align="center"><a href="php/itemDlt.php?name=<?=$row['item_name']?>&Id=<?=$row['menu_id']?>">
+        <button class="button red">Click</button></a>
 				</td>
-			<td><a href="edititem.php"><input type="submit" name="submit" value="Edit"></a></td>
-		</tr>
 
-		<tr>
-			<td align="center">01</td>
-			<td align="center">Item Name</td>
-			<td align="center">Item price</td>
-			<td width="10%" align="center"><a href="menudetails.php"><img src="pic/cancel.png" width="30px" height="30px"></a>
-				</td>
-			<td><a href="edititem.php"><input type="submit" name="submit" value="Edit"></a></td>
+        <td width="10%" align="center"><a href="edititem.php?name=<?=$row['item_name']?>&Id=<?=$row['menu_id']?>">
+          <button class="button">EDIT</button></a>
+        </td>
 		</tr>
-
+  <?php } ?>
+<?php } ?>
 		<tr>
-			<td align="center">01</td>
-			<td align="center">Item Name</td>
-			<td align="center">Item price</td>
-			<td width="10%" align="center"><a href="menudetails.php"><img src="pic/cancel.png" width="30px" height="30px"></a>
-				</td>
-			<td><a href="edititem.php"><input type="submit" name="submit" value="Edit"></a></td>
-		</tr>
-
-		<tr>
-			<td align="center">01</td>
-			<td align="center">Item Name</td>
-			<td align="center">Item price</td>
-			<td width="10%" align="center"><a href="menudetails.php"><img src="pic/cancel.png" width="30px" height="30px"></a>
-				</td>
-			<td><a href="edititem.php"><input type="submit" name="submit" value="Edit"></a></td>
-		</tr>
-
-		<tr>
-			<td align="center">01</td>
-			<td align="center">Item Name</td>
-			<td align="center">Item price</td>
-			<td width="10%" align="center"><a href="menudetails.php"><img src="pic/cancel.png" width="30px" height="30px"></a>
-				</td>
-			<td><a href="edititem.php"><input type="submit" name="submit" value="Edit"></a></td>
-		</tr>
-
-		<tr>
-			<td align="center">01</td>
-			<td align="center">Item Name</td>
-			<td align="center">Item price</td>
-			<td width="10%" align="center"><a href="menudetails.php"><img src="pic/cancel.png" width="30px" height="30px"></a>
-				</td>
-			<td><a href="edititem.php"><input type="submit" name="submit" value="Edit"></a></td>
-		</tr>
 
 		<tr>
 			<td colspan="5"></td>
 		</tr>
-		
+
 
 		<tr>
 			<td colspan="5" align="center"><a href="additem.php"><input type="submit" name="submit" value="ADD Item"></a></td>
 		</tr>
-		
+
+
+
 </body>
 </html>

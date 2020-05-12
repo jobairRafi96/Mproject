@@ -60,7 +60,7 @@
 
 		<tr>
 			<td><a href="menu.php"><h2>Menu</h2></a></td>
-			<td><a href="menu.php"><img align="left" src="pic/menu1.jfif" width="100px" height="100px"></a></td>
+			<td><a href="menu.php"><img align="left" src="pic/menu.jfif" width="100px" height="100px"></a></td>
 			<td colspan="2"></td>
 			<td><a href="grocery.php"><img align="right" src="pic/grocery.png" width="100px" height="100px"></a></td>
 			<td><a href="grocery.php"><h2>Grocery</h2></a></td>

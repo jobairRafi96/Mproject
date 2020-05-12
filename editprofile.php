@@ -37,7 +37,7 @@
 
 	<table align="center">
 		<tr>
-			<td><a href="chef.php"><img src="pic/back.png" width="40px" height="40px"></a></td>
+			<td><a href="profile.php"><img src="pic/back.png" width="40px" height="40px"></a></td>
 			<td><img src="pic/logo.png" alt="logo" width="50px" height="50px"></td>
 			<td><h1>Profile</h1></td>
 			<td><img src="pic/logo.png" alt="logo" width="50px" height="50px"></td>
@@ -60,7 +60,7 @@
   			<td>Profile Pic</td>
   			<td>:</td>
   			<td>
-  				<input type="file" name="mypic" value="">
+  				<input id="mypic" type="file" name="mypic" value="">
   			</td>
   		</tr>
 
@@ -70,7 +70,7 @@
   			<td>Chef Name</td>
   			<td>:</td>
   			<!-- use chef name by session -->
-  			<td><input type="text" name="cname" value=""></td>
+  			<td><input id="cname" type="text" name="cname" onkeyup="validation()"></td>
   		</tr>
 
 
@@ -87,7 +87,7 @@
         <td>Email</td>
         <td>:</td>
         <td>
-          <input type="text" name="cemail" value="">
+          <input id="cemail" type="text" name="cemail" value="">
         </td>
       </tr>
 
@@ -95,15 +95,7 @@
         <td>Address</td>
         <td>:</td>
         <td>
-          <input type="text" name="cadd" value="">
-        </td>
-      </tr>
-
-      <tr>
-        <td>DOB</td>
-        <td>:</td>
-        <td>
-          <input type="date" name="cdob" value="">
+          <input id="cadd" type="text" name="cadd" value="">
         </td>
       </tr>
 
@@ -111,9 +103,18 @@
         <td>Phone_no</td>
         <td>:</td>
         <td>
-          <input type="number" name="cphn" value="">
+          <input id="cphn" type="number" name="cphn" >
         </td>
       </tr>
+
+      <tr>
+        <td>DOB</td>
+        <td>:</td>
+        <td>
+          <input id="cdob" type="date" name="cdob" value="">
+        </td>
+      </tr>
+
 
   		<tr>
   			<td colspan="3" align="right"><input type="button"  value="Done" onclick="editprofileValidation()"></td>
@@ -125,12 +126,19 @@
   <script charset="utf-8">
 
   function editprofileValidation(){
+    var name = document.getElementById("cname").value;
     var pass = document.getElementById("cpass").value;
+    var email = document.getElementById("cemail").value;
+    var phn = document.getElementById("cphn").value;
+    var dob = document.getElementById("cdob").value;
+    var add = document.getElementById("cadd").value;
+    var mypic = document.getElementById("mypic").value;
+
     var msgDiv = document.querySelector(".msg");
     var msgDivclass = document.querySelector(".msg").classList;
-        if (pass.length<5) {
+        if (name=="" || pass =="" || email =="" || phn =="" || dob =="" || add =="" || !mypic) {
             msgDivclass.add("errorMsg");
-            msgDiv.innerHTML="<h3>password must contain at least 5 charecter</h3>";
+            msgDiv.innerHTML="<h3>Empty fields</h3>";
 
                 setTimeout(function(){
                   msgDivclass.remove("errorMsg");
@@ -141,7 +149,9 @@
         } else {
             document.getElementById("editprofileValidation").submit();
         }
-  }
+      }
+
+
 
 
   </script>

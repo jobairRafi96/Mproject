@@ -99,6 +99,29 @@
     return $user;
 	}
 
+	function itemDlt($iname){
+		$con = getConnection();
+		$sql = "delete from item where item_name='{$iname}'";
+    $result = mysqli_query($con, $sql);
+
+    return $result;
+	}
+
+	function itemEdit($itemName,$itemPrice,$iname){
+		$con = getConnection();
+    $sql = "update item set item_name = '{$itemName}', price='{$itemPrice}' where item_name='{$iname}'";
+    $result = mysqli_query($con, $sql);
+
+    return $result;
+	}
+
+	function getAllitem(){
+		$con = getConnection();
+		$sql = "select * from item";
+		$result = mysqli_query($con, $sql);
+		return $result;
+	}
+
 	function updateQuantityItem($newItemQuantity,$itemId){
 		$con = getConnection();
     $sql = "update item set quantity = '{$newItemQuantity}' where item_id='{$itemId}'";
@@ -139,6 +162,15 @@
 		$sql = "select * from dailyorderlist";
 		$result = mysqli_query($con, $sql);
 		return $result;
+	}
+
+	function menu($menuName){
+		$con = getConnection();
+		$sql = "select * from menu where menu_name='{$menuName}'";
+		$result = mysqli_query($con, $sql);
+		$user = mysqli_fetch_assoc($result);
+
+    return $user;
 	}
 
 

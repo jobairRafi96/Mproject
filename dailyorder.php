@@ -47,18 +47,7 @@
 
 		<?php } ?>
 
-<?php // TODO: delete dumy data ?>
-		<tr>
-			<td align="center">06</td>
-			<td align="center">Shahi Tanduri</td>
-			<td align="center">20</td>
-		</tr>
 
-		<tr>
-			<td align="center">07</td>
-			<td align="center">Shahi Tanduri</td>
-			<td align="center">20</td>
-		</tr>
 	</table>
 
 
