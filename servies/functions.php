@@ -46,7 +46,7 @@
 
     return $user;
   }
-	function chefpi1($mid){
+	function chefpiTomng($mid){
 
     $con = getConnection();
     $sql = "select * from managerpi where manager_id='{$mid}'";
@@ -201,6 +201,22 @@
 		$con = getConnection();
 		$sql = "select * from grocery where grocery_name like '%{$search}%'";
 		$result = mysqli_query($con, $sql);
+
+		return $result;
+	}
+
+	function groceryOrderExist($groceryName,$reqQuantity,$checked,$groid){
+		$con = getConnection();
+    $sql = "update grocery set grocery_name = '{$groceryName}',req_quantity = '{$reqQuantity}', checked ='{$checked}' where grocery_orderid='{$groid}'";
+    $result = mysqli_query($con, $sql);
+
+		return $result;
+	}
+
+	function groceryNewOrder($groceryName,$avQuantity,$reqQuantity,$checked,$cid){
+		$con = getConnection();
+		$sql = "insert into grocery values('','{$groceryName}','{$avQuantity}','{$reqQuantity}', '{$checked}', '{$cid}')";
+    $result = mysqli_query($con, $sql);
 
 		return $result;
 	}

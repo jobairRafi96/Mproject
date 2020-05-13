@@ -16,7 +16,8 @@
 
   $result = chefpi($userId);
   $_SESSION['chefpi']=$result;
-  $result1 = chefpi1($_SESSION['chefpi']['manager_id']);
+  //for manager name;
+  $result1 = chefpiTomng($_SESSION['chefpi']['manager_id']);
   $_SESSION['managerpi']=$result1;
 
 ?>

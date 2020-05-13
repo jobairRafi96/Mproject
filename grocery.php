@@ -18,7 +18,7 @@
 
 <style media="screen">
 .button {
-background-color: #63b7af; /* Green */
+background-color: #000000; /* Green */
 border: none;
 color: white;
 padding: 15px 32px;
@@ -30,12 +30,14 @@ margin: 4px 2px;
 cursor: pointer;
 border-radius: 2rem;
 }
-.button:hover{
-  color: #63b7af;
+
+.black {background-color: #000000;} /* Red */
+.black:hover{
+  color: #000000;
   background-color: white;
   font-style: oblique;
-  border: 4px solid #63b7af;
-  font-size: 16px;
+  border: 2px solid #000000;
+  font-size: 18px;
 }
 .searchInput{
   padding: 12px;
@@ -95,7 +97,7 @@ p{
 	<table align="center">
 		<tr>
 			<td colspan="2"><a href="ordergrocery.php"><img src="pic/grocery.png" width="80px" height="80px" alt="grocery pic"></a></td>
-			<td><a href="ordergrocery.php"><input type="submit" name="submit" value="Order Grocery"></a></td>
+			<td><a href="ordergrocery.php"><button class="button black">ORDER GROCERY</button></a></td>
 		</tr>
 	</table>
 
