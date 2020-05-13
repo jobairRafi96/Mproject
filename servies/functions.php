@@ -221,6 +221,14 @@
 		return $result;
 	}
 
+	function review(){
+		$con = getConnection();
+		$sql = "select * from review";
+		$result = mysqli_query($con, $sql);
+
+		return $result;
+	}
+
 
 
 

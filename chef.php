@@ -5,7 +5,10 @@
  	if (!isset($_SESSION['uname'])) {
  		header("location: login.php");
  	}
-  $_SESSION['pagecontrol']=1;
+  require_once('servies/functions.php');
+  $userId=$_SESSION['user']['user_id'];
+   $result = chefpi($userId);
+   $_SESSION['chefpi']=$result;
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +17,7 @@
 	<title></title>
 </head>
 <body>
-  
+
 		<!-- heading and logo -->
 	<table align="center">
 		<tr>
@@ -25,8 +28,15 @@
 
 			<td  align="right"><a href="chef.php"><img src="pic/home.png" width="50px" height="50px" align="center"></a></td>
 		</tr>
+    <tr>
+      <td colspan="5" align="center"><?php if ($_SESSION['chefpi']['profile_pic']==""){ ?>
+        <img src="pic/p.png" width="50px" height="50px" alt="profile pic" align="center">
+        <?php } else{ ?>
+      <img src="upload/<?=$_SESSION['chefpi']['profile_pic']?>" width="50px" height="50px" alt="profile pic" align="center">
+      <?php } ?></td>
+    </tr>
 		<tr>
-			<td colspan="5" align="center"><a href="profile.php"><h4 align="center">Profile</h4></a></td>
+			<td colspan="5" align="center"><h4 align="center"><a href="profile.php">Profile</a></h4></td>
 		</tr>
 	</table>
 	<hr>
