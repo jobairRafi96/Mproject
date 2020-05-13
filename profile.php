@@ -16,6 +16,8 @@
 
   $result = chefpi($userId);
   $_SESSION['chefpi']=$result;
+  $result1 = chefpi1($_SESSION['chefpi']['manager_id']);
+  $_SESSION['managerpi']=$result1;
 
 ?>
 
@@ -103,7 +105,7 @@
       <td>:</td>
       <td>
       <?php // TODO: under_mgrid should be a name ?>
-        <?php echo $_SESSION['chefpi']['under_mgrid']; ?>
+        <?php echo $_SESSION['managerpi']['manager_name']; ?>
       </td>
     </tr>
 

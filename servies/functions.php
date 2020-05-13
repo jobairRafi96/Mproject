@@ -46,6 +46,15 @@
 
     return $user;
   }
+	function chefpi1($mid){
+
+    $con = getConnection();
+    $sql = "select * from managerpi where manager_id='{$mid}'";
+    $result = mysqli_query($con, $sql);
+    $user = mysqli_fetch_assoc($result);
+
+    return $user;
+  }
 
 	function editPI($pp1,$un,$em,$add,$dob,$phn,$id){
 
