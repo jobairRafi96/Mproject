@@ -5,6 +5,7 @@
  	if (!isset($_SESSION['uname'])) {
  		header("location: login.php");
  	}
+  $_SESSION['pagecontrol']=1;
 ?>
 
 <!DOCTYPE html>
@@ -13,8 +14,7 @@
 	<title></title>
 </head>
 <body>
-
-
+  
 		<!-- heading and logo -->
 	<table align="center">
 		<tr>

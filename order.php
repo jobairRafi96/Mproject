@@ -53,6 +53,7 @@
         font-style: oblique;
         border: 5px solid #f44336;
         font-size: 18px;
+        
       }
 
 </style>
@@ -175,7 +176,7 @@ function complement(id){
                     elementid= "donebtnid"+id;
                     //i can use a css animation.
                     document.getElementById(elementid).innerHTML=this.responseText;
-                    document.getElementById(elementid).disabled = true; 
+                    document.getElementById(elementid).disabled = true;
 
                 }
             };

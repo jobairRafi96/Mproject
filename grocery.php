@@ -7,6 +7,7 @@
   require_once('servies/functions.php');
   $result = grocery();
   $Serial=0;
+
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +15,40 @@
 <head>
 	<title>Grocery</title>
 </head>
+
+<style media="screen">
+.button {
+background-color: #63b7af; /* Green */
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+border-radius: 2rem;
+}
+.button:hover{
+  color: #63b7af;
+  background-color: white;
+  font-style: oblique;
+  border: 4px solid #63b7af;
+  font-size: 16px;
+}
+.searchInput{
+  padding: 12px;
+  font-size: 17px;
+  border-radius: 2rem;
+  border:2px solid black;
+  text-align: center;
+}
+p{
+  text-align: center;
+}
+
+</style>
 <body>
 
 	<table align="center">
@@ -30,26 +65,29 @@
 
 	<table align="center">
 		<tr>
-			<td><input type="text" name="item" value="" placeholder="search" size="40"></td>
-			<td><a href="grocery.php"><img src="pic/search.png" alt="search" width="40px" height="40px"></a></td>
+			<td><input class="searchInput" id="srh" type="text" name="item" onkeyup="search()" placeholder="SEARCH HERE" size="40"></td>
 		</tr>
 	</table>
+  <br>
 
-	<table width="50%" align="center">
-		<tr><td width="10%"><h2>Serial</h2></td>
-			<td width="20%"><h2 align="center">Grocery Item Name</h2></td>
-			<td width="10%"><h2 align="center">Quantity</h2></td>
-		</tr>
+  	<table width="60%" align="center">
+  		<tr id="test"><td width="10%" align="center"><h2>Serial</h2></td>
+  			<td width="30%"><h2 align="center">Grocery Item Name</h2></td>
+  			<td width="20%"><h2 align="center">Quantity</h2></td>
+  		</tr>
+    </table>
 
-<?php	while($row = mysqli_fetch_assoc($result)){ ?>
-    <?php $GLOBALS['Serial']++;?>
+        <table width="60%" align="center" id="result" >
+        <?php	while($row = mysqli_fetch_assoc($result)){ ?>
+            <?php $GLOBALS['Serial']++;?>
 
-		<tr><td width="10%"><?= $GLOBALS['Serial'] ?></td>
-			<td width="20%" align="center"><?=$row['grocery_name']  ?></td>
-			<td width="10%" align="center"><?=$row['ava_quantity']  ?>KG</td>
-		</tr>
-<?php } ?>
-	</table>
+        		<tr><td width="10%" align="center"><?= $GLOBALS['Serial'] ?></td>
+        			<td width="30%" align="center"><?=$row['grocery_name']  ?></td>
+        			<td width="20%" align="center"><?=$row['ava_quantity']  ?>KG</td>
+        		</tr>
+        <?php } ?>
+        	</table>
+
 	<hr>
 	<hr>
 	<br>
@@ -62,5 +100,22 @@
 	</table>
 
 
+<script type="text/javascript">
+
+  function search(){
+        var search = document.getElementById("srh").value;
+    			var xhttp = new XMLHttpRequest();
+
+    			xhttp.onreadystatechange = function() {
+    			    if (this.readyState == 4 && this.status == 200){
+    			    	document.getElementById('result').innerHTML = this.responseText;
+    			    }
+    			};
+
+    			xhttp.open("GET", "php/grocerySearch.php?key="+search, true);
+    			xhttp.send();
+  }
+
+</script>
 </body>
 </html>

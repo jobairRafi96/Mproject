@@ -194,6 +194,14 @@
 		$con = getConnection();
 		$sql = "select * from grocery";
 		$result = mysqli_query($con, $sql);
+
+		return $result;
+	}
+	function grocerySearch($search){
+		$con = getConnection();
+		$sql = "select * from grocery where grocery_name like '%{$search}%'";
+		$result = mysqli_query($con, $sql);
+
 		return $result;
 	}
 
