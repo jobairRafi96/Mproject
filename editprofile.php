@@ -18,12 +18,31 @@
     padding: 0;
     box-sizing: border-box;
   }
+  .button {
+  background-color: white; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 28px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 2rem;
+  margin-top: 10px;
+  }
+
+  .green {background-color: #4CAF50;} /* green */
+  .green:hover{
+    color: #4CAF50;
+    background-color: white;
+    font-style: oblique;
+    border: 2px solid #4CAF50;
+  }
   .errorMsg{
     position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #d63447;
+    background-color: #f44336;
     color: white;
     font-family: fantasy;
     width: 100vh;
@@ -117,7 +136,7 @@
 
 
   		<tr>
-  			<td colspan="3" align="right"><input type="button"  value="Done" onclick="editprofileValidation()"></td>
+  			<td colspan="3" align="center"><input class="green button" type="button"  value="Done" onclick="editprofileValidation()"></td>
   		</tr>
 
   	</table>

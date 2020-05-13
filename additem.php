@@ -20,6 +20,32 @@ body{
   box-sizing: border-box;
 }
 
+.button {
+background-color: white; /* Green */
+border: none;
+color: white;
+padding: 10px 28px;
+text-align: center;
+display: inline-block;
+cursor: pointer;
+border-radius: 2rem;
+}
+
+.green {background-color: #4CAF50;} /* green */
+.green:hover{
+  color: #4CAF50;
+  background-color: white;
+  font-style: oblique;
+  border: 2px solid #4CAF50;
+}
+.black {background-color: #000000;} /* grey */
+.black:hover{
+  color: #000000;
+  background-color: white;
+  font-style: oblique;
+  border: 2px solid #000000;
+}
+
 .aform{
   display: flex;
   flex-direction: column;
@@ -51,9 +77,9 @@ body{
                     <tr></tr>
                   <tr></tr>
                   <tr></tr>
-                  <td align="center"><input type="submit" name="Confirm" value="Confirm"></td>
+                  <td align="center"><input class="green button" type="submit" name="Confirm" value="Confirm"></td>
                   <tr></tr>
-                  <td align="center"><a href="menudetails.php?Id=<?=$mid?>"><input type="button" name="Back" value="Back"></a></td>
+                  <td align="center"><a href="menudetails.php?Id=<?=$mid?>"><input class="black button" type="button" name="Back" value="Back"></a></td>
                   </tr>
 
               </table>

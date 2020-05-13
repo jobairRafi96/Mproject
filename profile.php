@@ -27,6 +27,28 @@
 <head>
 	<title>Profile</title>
 </head>
+<style media="screen">
+.button {
+background-color: white; /* Green */
+border: none;
+color: white;
+padding: 10px 28px;
+text-align: center;
+display: inline-block;
+cursor: pointer;
+border-radius: 2rem;
+margin-top: 10px;
+}
+
+.grey {background-color: #85a392;} /* green */
+.grey:hover{
+  color: #85a392;
+  background-color: white;
+  font-style: oblique;
+  border: 2px solid #85a392;
+}
+
+</style>
 <body>
 
 	<table align="center">
@@ -119,9 +141,8 @@
 		</tr>
 
 
-
 		<tr>
-			<td colspan="3" align="right"><a href="editprofile.php"><input type="button" name="submit" value="Edit"></a></td>
+			<td colspan="3" align="center"><a href="editprofile.php"><input class="grey button" type="button" name="submit" value="Edit"></a></td>
 		</tr>
 
 	</table>
