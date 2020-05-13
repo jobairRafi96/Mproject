@@ -190,6 +190,13 @@
     return $user;
 	}
 
+	function grocery(){
+		$con = getConnection();
+		$sql = "select * from grocery";
+		$result = mysqli_query($con, $sql);
+		return $result;
+	}
+
 
 
 

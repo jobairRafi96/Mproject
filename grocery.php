@@ -4,6 +4,9 @@
  	if (!isset($_SESSION['uname'])) {
  		header("location: login.php");
  	}
+  require_once('servies/functions.php');
+  $result = grocery();
+  $Serial=0;
 ?>
 
 <!DOCTYPE html>
@@ -38,42 +41,14 @@
 			<td width="10%"><h2 align="center">Quantity</h2></td>
 		</tr>
 
-		<tr><td width="10%">01</td>
-			<td width="20%" align="center">Beef</td>
-			<td width="10%" align="center">100kg</td>
+<?php	while($row = mysqli_fetch_assoc($result)){ ?>
+    <?php $GLOBALS['Serial']++;?>
+
+		<tr><td width="10%"><?= $GLOBALS['Serial'] ?></td>
+			<td width="20%" align="center"><?=$row['grocery_name']  ?></td>
+			<td width="10%" align="center"><?=$row['ava_quantity']  ?>KG</td>
 		</tr>
-		<tr><td width="10%">01</td>
-			<td width="20%" align="center">Beef</td>
-			<td width="10%" align="center">100kg</td>
-		</tr>
-		<tr><td width="10%">01</td>
-			<td width="20%" align="center">Beef</td>
-			<td width="10%" align="center">100kg</td>
-		</tr>
-		<tr><td width="10%">01</td>
-			<td width="20%" align="center">Beef</td>
-			<td width="10%" align="center">100kg</td>
-		</tr>
-		<tr><td width="10%">01</td>
-			<td width="20%" align="center">Beef</td>
-			<td width="10%" align="center">100kg</td>
-		</tr>
-		<tr><td width="10%">01</td>
-			<td width="20%" align="center">Beef</td>
-			<td width="10%" align="center">100kg</td>
-		</tr>
-		<tr><td width="10%">01</td>
-			<td width="20%" align="center">Beef</td>
-			<td width="10%" align="center">100kg</td>
-		</tr>
-		<tr><td width="10%">01</td>
-			<td width="20%" align="center">Beef</td>
-			<td width="10%" align="center">100kg</td>
-		</tr>
-		<tr><td width="10%">01</td>
-			<td width="20%" align="center">Beef</td>
-			<td width="10%" align="center">100kg</td>
-		</tr>
+<?php } ?>
 	</table>
 	<hr>
 	<hr>
@@ -85,7 +60,7 @@
 			<td><a href="ordergrocery.php"><input type="submit" name="submit" value="Order Grocery"></a></td>
 		</tr>
 	</table>
-	
+
 
 </body>
 </html>
