@@ -229,6 +229,21 @@
 		return $result;
 	}
 
+	function service($serviceName,$reqBy){
+		$con = getConnection();
+		$sql = "insert into service values('','{$serviceName}','{$reqBy}','{0}')";
+		$result = mysqli_query($con, $sql);
+
+		return $result;
+	}
+	function serviceCheck($uid){
+		$con = getConnection();
+		$sql = "select * from service where reqby_user='{$uid}'";
+		$result = mysqli_query($con, $sql);
+
+		return $result;
+	}
+
 
 
 
