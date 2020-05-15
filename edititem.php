@@ -48,10 +48,19 @@
     }
 
     .eform{
+      position: absolute;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 200px;
+      top: 14vh;
+      left: 60vh;
+      background-color: white;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      margin: 0;
+    }
+    .fs{
+      padding: 40px 130px 40px;
+      border-color: #4CAF50;
     }
 </style>
 
@@ -59,19 +68,19 @@
 
   <div class="eform">
 
-            <fieldset style="width: 350px">
+            <fieldset style="width: 350px" class="fs">
           		<form method="post" action="php/itemEdit.php?name=<?=$iname?>&Id=<?=$mid?>"><h3>
           			<table align="center">
           				<tr>
-          					<td align="center" colspan="2"><h3>EDIT ITEM</h3></td>
+          					<td align="center" colspan="2"><h2>EDIT ITEM</h2></td>
           				</tr>
 
           				<tr>
-          					<td>Item name</td>
+          					<td align="center">Item name</td>
           					<tr></tr>
           					<td><input type="text" name="name"  placeholder="name"></td>
           				    <tr></tr>
-          					<td>Item Price: </td>
+          					<td align="center">Item Price: </td>
           					<tr></tr>
           					<td><input type="number" name="price"  placeholder="price"></td>
                               <tr></tr>

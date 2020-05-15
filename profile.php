@@ -5,6 +5,7 @@
 // TODO: by login i need a session of user
 // TODO: email must be unique when register;
 // TODO: for work this code of mine the todos needed to be done;
+//// TODO: cookie and layered;
  	if (!isset($_SESSION['uname'])) {
  		header("location: login.php");
  	}
@@ -16,6 +17,7 @@
 
   $result = chefpi($userId);
   $_SESSION['chefpi']=$result;
+
   //for manager name;
   $result1 = chefpiTomng($_SESSION['chefpi']['manager_id']);
   $_SESSION['managerpi']=$result1;
@@ -118,7 +120,7 @@ margin-top: 10px;
       <td>Phone</td>
       <td>:</td>
       <td>
-        <?php // TODO: in database phone_no should be string ?>
+
         <?php echo $_SESSION['chefpi']['phone_no'] ?>
       </td>
     </tr>
@@ -136,8 +138,8 @@ margin-top: 10px;
 		<tr>
 			<td>Tip Amount</td>
 			<td>:</td>
-      <?php // TODO: calculationg tip amount ?>
-			<td><?php echo $_SESSION['chefpi']['tip_amount']; ?></td>
+
+			<td><?php echo $_SESSION['chefpi']['tip_amount']; ?>TK</td>
 		</tr>
 
 

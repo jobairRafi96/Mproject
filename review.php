@@ -7,6 +7,7 @@
   require_once('servies/functions.php');
 
   $result = review();
+  $Serial=0;
 ?>
 
 <!DOCTYPE html>
@@ -33,15 +34,17 @@
                 			<td width="10%"><h2 align="center">Rating</h2></td>
                 		</tr>
                     <?php	while($row = mysqli_fetch_assoc($result)){ ?>
-                      <?php $fr=(int)$row['review_food']; ?>
-                      <?php if ($fr>0) {?>
+                      <?php $fr=$row['review_food']; ?>
+                      <?php if ($fr!="") {?>
+                        <?php $GLOBALS['Serial']++ ?>
                         <?php $result1=Guestpi($row['guest_id']) ?>
-                        <tr><td width="10%" align="center"><?=$result1['name']?></td>
-                    			<td width="20%" align="center"><?=$row['review_msg'] ?></td>
-                    			<td width="10%" align="center"><?= $fr ?></td>
+                        <tr>
+                          <td width="10%" align="center"><?=$GLOBALS['Serial']  ?>.<?=$result1['name']?></td>
+                    			<td width="20%" align="center"><?=$row['review_food'] ?></td>
+                    			<td width="10%" align="center"><?= $row['rating'] ?></td>
                     		</tr>
                     <?php }else{ ?>
-                              <tr><td colspan="3" align="center">no reviews</td>
+                              <tr><td colspan="3" align="center">no food reviews</td>
                               </tr>
                           <?php } ?>
                   <?php } ?>

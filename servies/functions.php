@@ -64,6 +64,43 @@
 
 		return $result;
 	}
+	function editPIname($value,$cid){
+		$con = getConnection();
+		$sql = "update chefpi set  name = '{$value}' where chef_id='{$cid}'";
+		$result = mysqli_query($con, $sql);
+
+		return $result;
+	}
+	function editPIemail($value,$cid){
+		$con = getConnection();
+		$sql = "update chefpi set  email = '{$value}' where chef_id='{$cid}'";
+		$result = mysqli_query($con, $sql);
+
+		return $result;
+	}
+	function editPIadd($value,$cid){
+		$con = getConnection();
+		$sql = "update chefpi set  address = '{$value}' where chef_id='{$cid}'";
+		$result = mysqli_query($con, $sql);
+
+		return $result;
+	}
+
+	function editPIphone($value,$cid){
+		$con = getConnection();
+		$sql = "update chefpi set  phone_no = '{$value}' where chef_id='{$cid}'";
+		$result = mysqli_query($con, $sql);
+
+		return $result;
+	}
+	function editPIdob($value,$cid){
+		$con = getConnection();
+		$sql = "update chefpi set  dob = '{$value}' where chef_id='{$cid}'";
+		$result = mysqli_query($con, $sql);
+
+		return $result;
+	}
+
 
 	function editPassword($uid,$pass,$em){
 		$con = getConnection();
@@ -72,6 +109,20 @@
 
 		return $result;
 	}
+function	editPasswordsingle($value,$uid){
+	$con = getConnection();
+	$sql = "update user set password = '{$value}' where user_id='{$uid}'";
+	$result = mysqli_query($con, $sql);
+
+	return $result;
+}
+		function editPIpic($pp1,$cid){
+			$con = getConnection();
+			$sql = "update chefpi set profile_pic = '{$pp1}' where chef_id='{$cid}'";
+			$result = mysqli_query($con, $sql);
+
+			return $result;
+		}
 
 	function getAllorder(){
 		$con = getConnection();
@@ -242,6 +293,13 @@
 		$result = mysqli_query($con, $sql);
 
 		return $result;
+	}
+	function updateBalanceT($newBalance,$chefid){
+		$con = getConnection();
+    $sql = "update chefpi set tip_amount = '{$newBalance}' where chef_id='{$chefid}'";
+    $result = mysqli_query($con, $sql);
+
+    return $result;
 	}
 
 

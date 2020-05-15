@@ -44,45 +44,52 @@
     }
 
     .gform{
+      position: absolute;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 200px;
+      top: 14vh;
+      left: 60vh;
+      background-color: white;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      margin: 0;
+    }
+    .fs{
+      padding: 40px 130px 40px;
+      border-color: #4CAF50;
     }
 </style>
 <body>
+    <div class="gform">
 
-		<form class="gform" method="post" action="php/groceryOrder.php"><h3>
-      <fieldset style="width: 350px">
-			<table align="center">
-				<tr>
-					<td align="center" colspan="2"><h3>Order Grocery<br> ITEM</h3></td>
-				</tr>
+          <fieldset style="width: 350px" class="fs">
+          		<form  method="post" action="php/groceryOrder.php"><h3>
 
-				<tr>
-					<td> Grocery Item name</td>
-					<tr></tr>
-					<td><input type="text" name="name"  placeholder="name"></td>
-				    <tr></tr>
-					<td>Item Quantity: </td>
-					<tr></tr>
-					<td><input type="number" name="quantity"  placeholder="quantity"></td>
-                    <tr></tr>
-					<tr></tr>
-					<td align="center"><input class="green button" type="submit" name="Confirm" value="Confirm"></td>
-					<tr></tr>
-					<td align="center"><a href="grocery.php"><input class="black button" type="button" name="back" value="Back"></a></td>
+          			<table align="center">
+          				<tr>
+          					<td align="center" colspan="2"><h3>Order Grocery<br> ITEM</h3></td>
+          				</tr>
 
-					</tr>
+          				<tr>
+          					<td> Grocery Item name</td>
+          					<tr></tr>
+          					<td><input type="text" name="name"  placeholder="name"></td>
+          				    <tr></tr>
+          					<td>Item Quantity: </td>
+          					<tr></tr>
+          					<td><input type="number" name="quantity"  placeholder="quantity"></td>
+                              <tr></tr>
+          					<tr></tr>
+          					<td align="center"><input class="green button" type="submit" name="Confirm" value="Confirm"></td>
+          					<tr></tr>
+          					<td align="center"><a href="grocery.php"><input class="black button" type="button" name="back" value="Back"></a></td>
 
-			</table>
+          					</tr>
 
-		</form>
-
-
-
-</fieldset>
-
+          			</table>
+          		</form>
+          </fieldset>
+      </div>
 
 </body>
 </html>

@@ -52,21 +52,8 @@
 			<td colspan="2"></td>
 		</tr>
 		<tr>
-			<td colspan="6"></td>
+		    <td><br /></td>
 		</tr>
-		<tr>
-			<td colspan="6"></td>
-		</tr>
-		<tr>
-			<td colspan="6"></td>
-		</tr>
-		<tr>
-			<td colspan="6"></td>
-		</tr>
-		<tr>
-			<td colspan="6"></td>
-		</tr>
-
 
 		<tr>
 			<td><a href="menu.php"><h2>Menu</h2></a></td>
@@ -79,38 +66,24 @@
 
 
 		<tr>
-			<td><a href="message.php"><h2>Message</h2></td>
-			<td><a href="message.php"><img align="right" src="pic/mgs.png" width="100px" height="100px"></td>
+			<td ><a href="service.php"><h2>Service</h2></a></td>
+			<td ><a href="service.php"><img align="left" src="pic/service.png" width="95px" height="95px"></a></td>
 			<td colspan="2"></td>
 			<td><a href="review.php"><img align="right" src="pic/review.png" width="100px" height="100px"></a></td>
 			<td><a href="review.php"><h2>Reviews</h2></a></td>
 		</tr>
 
-
-		<tr>
-			<td colspan="2"></td>
-			<td ><a href="service.php"><img align="left" src="pic/service.png" width="95px" height="95px"></a></td>
-			<td ><a href="service.php"><h2>Service</h2></a></td>
-			<td colspan="2"></td>
-
+    <tr>
+		    <td><br /></td>
 		</tr>
 
-
 		<tr>
 			<td colspan="2"></td>
-			<td><a href="payment.php"><h2>Withdraw<br>Payment</h2></td>
 			<td><a href="payment.php"><img align="right" src="pic/payment.png" width="90px" height="90px"></td>
+			<td><a href="payment.php"><h2>Withdraw<br>Payment</h2></td>
 			<td colspan="2"></td>
+
 		</tr>
-
-		<!-- <tr>
-			<td colspan="2"></td>
-			<td><a href="login.php"><img src="pic/logout1.png" width="80px" height="80px"></a></td>
-			<td><a href="login.php">logout</a></td>
-			<td colspan="2"></td>
-		</tr> -->
-
-
 
 	</table>
 

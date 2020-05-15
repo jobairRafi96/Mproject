@@ -7,6 +7,7 @@
   require_once('servies/functions.php');
   //finding user id by $_SESSION['user']
   $result = getAllDailyOrder();
+  $flag=0;
 ?>
 
 <!DOCTYPE html>
@@ -35,18 +36,27 @@
 		</tr>
 
     <?php	while($row = mysqli_fetch_assoc($result)){ ?>
+      <?php if($row['Date']==date("Y-m-d")){ ?>
+        		<tr>
+        			<td align="center"><?=$row['serial_id']?></td>
 
-		<tr>
-			<td align="center"><?=$row['serial_id']?></td>
+              <?php $itemName['item']=item($row['item_id']) ?>
 
-      <?php $itemName['item']=item($row['item_id']) ?>
-
-			<td align="center"><?=$itemName['item']['item_name']?></td>
-			<td align="center"><?=$row['quantity']?></td>
-		</tr>
-
+        			<td align="center"><?=$itemName['item']['item_name']?></td>
+        			<td align="center"><?=$row['quantity']?></td>
+        		</tr>
+            <?php $GLOBALS['flag']=1; ?>
+        <?php } ?>
 		<?php } ?>
 
+      <?php if($GLOBALS['flag']!=1) {?>
+        <tr>
+          <td><br /><br /><br /><br /><br /></td>
+        </tr>
+        <tr>
+          <td colspan="3" align="center"><h1>No Order Yet</h1></td>
+        </tr>
+      <?php } ?>
 
 	</table>
 
