@@ -13,7 +13,7 @@
 
   // TODO: check data may be changable..
   $avQuantity =0;
-  $checked=1;
+  $checked=0;
 
         if (empty($groceryName)||empty($reqQuantity)) {
           echo("<h1 align='center'>empty submittion</h1>");
