@@ -1,3 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style media="screen">
+    .error{
+      color: red;
+      position: absolute;
+      text-align: center;
+      top: 40vh;
+      left: 80vh;
+      font-size: 50px;
+      text-shadow: 4px 4px 10px red;
+    }
+  </style>
+  <body>
+
+
 <?php
  	session_start();
 //if session was destroy in log out page we need to do login again.
@@ -11,12 +31,12 @@
   $cid=$_SESSION['chefpi']['chef_id'];
   $groid="";
 
-  // TODO: check data may be changable..
+
   $avQuantity =0;
   $checked=0;
 
         if (empty($groceryName)||empty($reqQuantity)) {
-          echo("<h1 align='center'>empty submittion</h1>");
+          echo("<h1 class='error'>empty submittion</h1>");
         }else{
 
               $result=grocery();
@@ -46,3 +66,6 @@
         }
 
 ?>
+
+</body>
+</html>

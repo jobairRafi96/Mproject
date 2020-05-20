@@ -17,7 +17,7 @@
 
 //profile pic
       $filename = $_FILES['mypic']['name'];
-  		$dest = "../upload/".$filename;
+  		$dest = "../../views/chef/upload/".$filename;
   		$src = $_FILES['mypic']['tmp_name'];
 
   		if(move_uploaded_file($src, $dest)){
@@ -28,7 +28,7 @@
 
       $pp1= $dest;
 
-  $result = editPI($pp1,$un,$em,$add,$dob,$phn,$id);
+  $result = editPI($filename,$un,$em,$add,$dob,$phn,$id);
 
   if ($result) {
 

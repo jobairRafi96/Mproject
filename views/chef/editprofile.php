@@ -101,7 +101,7 @@
 <!-- <h3>at least 5 character for password</h3> -->
   </div>
 
-  <form id="editprofileValidation" action="../../php/editcheck.php" method="post" enctype="multipart/form-data">
+  <form id="editprofileValidation" action="../../php/chef/editcheck.php" method="post" enctype="multipart/form-data">
     <table align="center">
 
   		<tr>
