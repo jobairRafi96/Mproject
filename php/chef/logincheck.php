@@ -3,16 +3,14 @@
 	session_start();
 
 	include('../../service/functions.php');
-	//include_once('db.php');
-	//require('db.php');
-	//require_once('db.php');
+	
 
 	if(isset($_POST['login'])){
 
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
-		                                     //associative array
+
 
 		if ( empty(trim($email)) || empty(trim($password)) ) {
 			echo "Null submission";
