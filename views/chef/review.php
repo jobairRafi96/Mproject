@@ -8,6 +8,8 @@
 // TODO: all no food msg are here;
   $result = review();
   $Serial=0;
+  $oneline=0;
+
 ?>
 
 <!DOCTYPE html>
@@ -43,12 +45,15 @@
                     			<td width="20%" align="center"><?=$row['review_food'] ?></td>
                     			<td width="10%" align="center"><?= $row['rating'] ?></td>
                     		</tr>
+                        <?php $GLOBALS['oneline']=1; ?>
                     <?php }else{ ?>
-                              <tr><td colspan="3" align="center">no food reviews</td>
+                      <?php if($GLOBALS['oneline']==0){ ?>
+                              <tr><td colspan="3" align="center"><h1>No Food Reviews</h1></td>
                               </tr>
+                            <?php } ?>
+                              <?php $GLOBALS['oneline']=1; ?>
                           <?php } ?>
                   <?php } ?>
-
 
 	</table>
 
